@@ -6,9 +6,18 @@ const AuthContext = createContext();
 function AuthProvider ({ children }){
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
+    const adminList = ['creepborken'];
+    const editorList = ['editionuser'];
+    const rolelist = [{isAdmin:0,isEditor:0}];
 
     const login = (username) =>{
-        setUser({username});
+        const isAdmin = adminList.find(admin => admin === username); 
+        const isEditor = editorList.find(editor => editor === username); 
+        
+        rolelist[0].isAdmin = isAdmin;
+        rolelist[0].isEditor = isEditor;
+
+        setUser({username, rolelist});
         navigate('/profile')
     }
 
