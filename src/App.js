@@ -9,9 +9,11 @@ import LoginPage from "./views/LoginPage";
 import LogoutPage from "./views/LogoutPage";
 import { AuthProvider, AuthRoute } from "./utils/auth";
 
-import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
-import "primereact/resources/primereact.min.css";                  //core css
-import "primeicons/primeicons.css";                                //icons
+import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
+import "primeflex/primeflex.css";
+import "primereact/resources/primereact.min.css"; //core css
+import "primeicons/primeicons.css"; //icons
+
 /*
 
   Como Funcionaria mi sitio dependiendo a la URL 
@@ -24,8 +26,7 @@ import "primeicons/primeicons.css";                                //icons
   /profile   -> HomePage
 */
 
-function App() {  
-
+function App() {
   return (
     <>
       <HashRouter>
@@ -35,9 +36,8 @@ function App() {
 
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
-            <Route path="/blog" element={<BlogPage />}>
-              <Route path=":slug" element={<BlogPost />}></Route>
-            </Route>
+            <Route path="/blog" element={<BlogPage />}></Route>
+            <Route path="/blog/:slug" element={<BlogPost />}></Route>
             <Route path="/login" element={<LoginPage />}></Route>
 
             {/* 
