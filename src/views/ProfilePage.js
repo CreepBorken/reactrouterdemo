@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useAuth } from "./auth";
+import { useAuth } from "../utils/auth";
 
 function ProfilePage() {
   const auth = useAuth();

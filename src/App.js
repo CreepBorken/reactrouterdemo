@@ -1,14 +1,17 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Menu from "./Menu";
-import HomePage from "./HomePage";
-import BlogPage from "./BlogPage";
-import ProfilePage from "./ProfilePage";
-import NotFoundPage from "./NotFoundPage";
-import BlogPost from "./BlogPost";
-import LoginPage from "./LoginPage";
-import LogoutPage from "./LogoutPage";
-import { AuthProvider, AuthRoute } from "./auth";
+import Menu from "./views/Menu";
+import HomePage from "./views/HomePage";
+import BlogPage from "./views/BlogPage";
+import ProfilePage from "./views/ProfilePage";
+import NotFoundPage from "./views/NotFoundPage";
+import BlogPost from "./views/BlogPost";
+import LoginPage from "./views/LoginPage";
+import LogoutPage from "./views/LogoutPage";
+import { AuthProvider, AuthRoute } from "./utils/auth";
 
+import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
+import "primereact/resources/primereact.min.css";                  //core css
+import "primeicons/primeicons.css";                                //icons
 /*
 
   Como Funcionaria mi sitio dependiendo a la URL 
@@ -21,7 +24,8 @@ import { AuthProvider, AuthRoute } from "./auth";
   /profile   -> HomePage
 */
 
-function App() {
+function App() {  
+
   return (
     <>
       <HashRouter>
