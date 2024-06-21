@@ -1,3 +1,40 @@
 html {
     font-size: 12px;
 }
+
+body {
+    margin: 0;    
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.navbar{
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+.footer{
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    bottom: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+
+.main {
+    margin-top: 4%; /* Add a top margin to avoid content overlay */    
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 4%;
+  }
+
+
+  
+
+
+

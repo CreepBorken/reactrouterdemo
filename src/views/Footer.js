@@ -1,9 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../utils/auth";
-import { Menubar } from "primereact/menubar";
 
-function Menu() {
+function Footer() {
   const auth = useAuth();
 
   const routes = [];
@@ -47,32 +46,16 @@ function Menu() {
   });
 
   return (
-    <div className="navbar">
+    <div className="footer">
       <div class="bg-bluegray-900 text-gray-100 p-1 flex justify-content-between lg:justify-content-between center align-items-center flex-wrap">
         <div
           className="shadow-1 p-1 h-full flex flex-row"
           style={{ borderRadius: "6px" }}
         >
-          {routes.map((route) => {
-            if (route.publicOnly && auth.user) return null;
-            if (route.private && !auth.user) return null;
-            return (
-              <div class="block text-center p-2 m-1">
-                <NavLink
-                  to={route.to}
-                  style={({ isActive }) => ({
-                    color: isActive ? "gray" : "white",
-                    textDecoration: "none",
-                  })}
-                >
-                  {route.text}
-                </NavLink>
-              </div>
-            );
-          })}
+          <div class="block text-center p-2 m-1">Footer</div>
         </div>
       </div>
     </div>
   );
 }
-export default Menu;
+export default Footer;

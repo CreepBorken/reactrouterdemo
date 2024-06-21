@@ -3,33 +3,34 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { blogdata } from "./blogdata";
 import { Button } from "primereact/button";
 
-function BlogPage({ blog }) {    
+function BlogPage({ blog }) {
   return (
     <>
-      <h1>BlogPage</h1>
-      <Outlet />
-      <div className="grid">
-        {blogdata.map((post) => (
-          <BlogLink key={post.slug} post={post} />
-        ))}
+      <div className="main">
+        <h1>BlogPage</h1>
+        <Outlet />
+
+        <div className="grid p-2 m-1">
+          {blogdata.map((post) => (
+            <BlogLink key={post.slug} post={post} />
+          ))}
+        </div>
       </div>
     </>
   );
 }
 
 function BlogLink({ post }) {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    const goto = () =>{
+  const goto = () => {
     // return (<Link to={`/blog/${post.slug}`}>{post.title}</Link>);
 
     navigate(`/blog/${post.slug}`);
-
-}
+  };
   return (
-    <div className="col-4 lg:col-3">
-      <div className="p-3 h-full">
+    <div className="col-12 md:col-12 lg:col-12">
+      <div className="p-1 h-full">
         <div
           className="shadow-2 p-3 h-full flex flex-column"
           style={{ borderRadius: "6px" }}
@@ -50,9 +51,9 @@ function BlogLink({ post }) {
           </div>
 
           <hr className="my-3 mx-0 border-top-1 border-bottom-none border-300" />
-          
+
           <div className="grid">
-            <div className="col-12 lg:col-12">                
+            <div className="col-12 lg:col-12">
               <Button
                 label="Ver"
                 icon="pi pi-eye"
@@ -63,12 +64,12 @@ function BlogLink({ post }) {
             </div>
             {/* <div className="col-12 lg:col-12">
               <Button
-                label="Editar"
-                icon="pi pi-pen-to-square"
-                className="p-button-secondary p-button-outlined w-full"
-                size="small"
+              label="Editar"
+              icon="pi pi-pen-to-square"
+              className="p-button-secondary p-button-outlined w-full"
+              size="small"
               />
-            </div> */}
+              </div> */}
           </div>
         </div>
       </div>

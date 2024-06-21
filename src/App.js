@@ -13,6 +13,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primeflex/primeflex.css";
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css"; //icons
+import Footer from "./views/Footer";
 
 /*
 
@@ -32,40 +33,41 @@ function App() {
       <HashRouter>
         {/* Se Recomienda amplicamente colocar este componente dentro del HashRouter para con el AuthProvider utilizar los metdos del hashRouter y navegar*/}
         <AuthProvider>
-          <Menu />
+            <Menu />
 
-          <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/blog" element={<BlogPage />}></Route>
-            <Route path="/blog/:slug" element={<BlogPost />}></Route>
-            <Route path="/login" element={<LoginPage />}></Route>
+            <Routes>
+              <Route path="/" element={<HomePage />}></Route>
+              <Route path="/blog" element={<BlogPage />}></Route>
+              <Route path="/blog/:slug" element={<BlogPost />}></Route>
+              <Route path="/login" element={<LoginPage />}></Route>
 
-            {/* 
+              {/* 
               Antes de Mostrar el element vamos a AuthRoute, quien valida si hay sesion iniciada o no.
               Esto se ejectua en el orden en el que se ven los componentes.
             */}
-            <Route
-              path="/logout"
-              element={
-                <AuthRoute>
-                  <LogoutPage />
-                </AuthRoute>
-              }
-            ></Route>
-            <Route
-              path="/profile"
-              element={
-                <AuthRoute>
-                  <ProfilePage />
-                </AuthRoute>
-              }
-            ></Route>
-            {/* Not Found con Asterisco va simepre al final, indica que todo aquel URL que no hayamos definido preste el componente <NotFoundPage/> */}
-            <Route path="*" element={<NotFoundPage />}></Route>
-          </Routes>
+              <Route
+                path="/logout"
+                element={
+                  <AuthRoute>
+                    <LogoutPage />
+                  </AuthRoute>
+                }
+              ></Route>
+              <Route
+                path="/profile"
+                element={
+                  <AuthRoute>
+                    <ProfilePage />
+                  </AuthRoute>
+                }
+              ></Route>
+              {/* Not Found con Asterisco va simepre al final, indica que todo aquel URL que no hayamos definido preste el componente <NotFoundPage/> */}
+              <Route path="*" element={<NotFoundPage />}></Route>
+            </Routes>  
+            <Footer />        
         </AuthProvider>
-      </HashRouter>
-    </>
+      </HashRouter>    
+      </>
   );
 }
 
