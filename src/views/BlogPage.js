@@ -7,6 +7,10 @@ function BlogPage({ blog }) {
   return (
     <>
       <div className="main">
+      <div
+          className="content shadow-2 p-3"          
+        >
+
         <h1>BlogPage</h1>
         <Outlet />
 
@@ -14,6 +18,7 @@ function BlogPage({ blog }) {
           {blogdata.map((post) => (
             <BlogLink key={post.slug} post={post} />
           ))}
+        </div>
         </div>
       </div>
     </>
@@ -29,7 +34,7 @@ function BlogLink({ post }) {
     navigate(`/blog/${post.slug}`);
   };
   return (
-    <div className="col-12 md:col-12 lg:col-12">
+    <div className="col-12 md:col-3 lg:col-3">
       <div className="p-1 h-full">
         <div
           className="shadow-2 p-3 h-full flex flex-column"

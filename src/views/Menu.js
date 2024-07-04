@@ -15,6 +15,14 @@ function Menu() {
     icon: "pi pi-star",
   });
   routes.push({
+    to: "/events",
+    text: "Events",
+    private: true,
+    label: "Events",
+    icon: "pi pi-star",
+    visible: false,
+  });
+  routes.push({
     to: "/blog",
     text: "Blog",
     private: false,
@@ -48,7 +56,7 @@ function Menu() {
 
   return (
     <div className="navbar">
-      <div class="bg-bluegray-900 text-gray-100 p-1 flex justify-content-between lg:justify-content-between center align-items-center flex-wrap">
+      <div className="bg-bluegray-900 text-gray-100 p-1 flex justify-content-between lg:justify-content-between center align-items-center flex-wrap">
         <div
           className="shadow-1 p-1 h-full flex flex-row"
           style={{ borderRadius: "6px" }}
@@ -57,8 +65,9 @@ function Menu() {
             if (route.publicOnly && auth.user) return null;
             if (route.private && !auth.user) return null;
             return (
-              <div class="block text-center p-2 m-1">
+              <div key={route.to} className="block text-center p-2 m-1">
                 <NavLink
+                  
                   to={route.to}
                   style={({ isActive }) => ({
                     color: isActive ? "gray" : "white",

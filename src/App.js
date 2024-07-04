@@ -14,6 +14,7 @@ import "primeflex/primeflex.css";
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css"; //icons
 import Footer from "./views/Footer";
+import EventsPage from "./views/EventsPage";
 
 /*
 
@@ -36,7 +37,7 @@ function App() {
             <Menu />
 
             <Routes>
-              <Route path="/" element={<HomePage />}></Route>
+              <Route path="/" element={<HomePage />}></Route>              
               <Route path="/blog" element={<BlogPage />}></Route>
               <Route path="/blog/:slug" element={<BlogPost />}></Route>
               <Route path="/login" element={<LoginPage />}></Route>
@@ -44,12 +45,20 @@ function App() {
               {/* 
               Antes de Mostrar el element vamos a AuthRoute, quien valida si hay sesion iniciada o no.
               Esto se ejectua en el orden en el que se ven los componentes.
-            */}
+            */}            
               <Route
                 path="/logout"
                 element={
                   <AuthRoute>
                     <LogoutPage />
+                  </AuthRoute>
+                }
+              ></Route>
+              <Route
+                path="/events"
+                element={
+                  <AuthRoute>
+                    <EventsPage />
                   </AuthRoute>
                 }
               ></Route>
