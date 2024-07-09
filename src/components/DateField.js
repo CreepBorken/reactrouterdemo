@@ -25,7 +25,7 @@ const DateField =  (props) => {
         props.isTime !== undefined ? 
         (
           <>
-            <span className="p-float-label">
+            <span style={{marginTop: "10px"}} className="p-float-label">
               <Calendar
                 value={props.value}
                 onChange={onChange}
@@ -48,7 +48,7 @@ const DateField =  (props) => {
         :
         (
           <>
-            <span className="p-float-label">
+            <span style={{marginTop: "10px"}} className="p-float-label">
               <Calendar
                 value={props.value}
                 onChange={onChange}
