@@ -35,7 +35,7 @@ const TextField =  (props) => {
     if(props.isInputGroup){
       return ( 
         <>
-          <div className="p-float-label">
+          <div style={{marginTop: "10px"}} className="p-float-label">
             <InputText 
               value={props.value === null ? '' : props.value} 
               onChange={onChange}
@@ -63,7 +63,7 @@ const TextField =  (props) => {
       }
     return (  
       <>  
-        <span className="p-float-label">
+        <span style={{marginTop: "10px"}} className="p-float-label">
           <InputText 
             value={props.value === null ? '' : props.value} 
             onChange={onChange}

@@ -1,31 +1,16 @@
 import React, { useState } from "react";
-import { InputText } from "primereact/inputtext";
 import { FloatLabel } from "primereact/floatlabel";
-import TextField from "../components/TextField";
 import DateField from "../components/DateField";
 import { Calendar } from "primereact/calendar";
 import { TabView, TabPanel } from "primereact/tabview";
 import DropdownField from "../components/DropdownField";
+import ButtonField from "../components/ButtonField";
+import EventDetailReception from "./EventDetailReception";
+import EventDetailAttendees from "./EventDetailAttendees";
+import TextField from "../components/TextField";
+
 
 function EventDetailPage() {
-  const venuesData = [
-    {
-      ClaVenue: 1,
-      NomVenue: "Airo",
-    },
-    {
-      ClaVenue: 2,
-      NomVenue: "Casino Monterrey",
-    },
-    {
-      ClaVenue: 3,
-      NomVenue: "Casona de San Pedro",
-    },
-    {
-      ClaVenue: 4,
-      NomVenue: "Club Industrial",
-    },
-  ];
 
   const eventTypeData = [
     {
@@ -70,9 +55,6 @@ function EventDetailPage() {
   const [EventDate, setEventDate] = useState(null);
   const [EventTime, setEventTime] = useState(null);
 
-  const [VenueList, setVenueList] = useState(venuesData);
-  const [Venue, setVenue] = useState(null);
-
   const [EventTypeList, setEventTypeList] = useState(eventTypeData);
   const [EventType, setEventType] = useState(null);
 
@@ -92,11 +74,14 @@ function EventDetailPage() {
   return (
     <>
       <div className="grid p-1 m-1">
-        <div className="col-12 md:col-12 lg:col-12">
+        {/* <div className="col-12 md:col-12 lg:col-12">
           <h1>EventDetailPage</h1>
           <hr className="my-3 mx-0 border-top-1 border-bottom-none border-300" />
-        </div>
+        </div> */}
         <div className="grid col-12 md:col-12 lg:col-12">
+          <div className="col-12 md:col-2 lg:col-2 p-fluid">
+            <TextField type="text" label='Event Name' />
+          </div>
           <div className="col-12 md:col-2 lg:col-2 p-fluid">
             <FloatLabel>
               <DateField
@@ -123,7 +108,7 @@ function EventDetailPage() {
             </FloatLabel>
           </div>
 
-          <div className="col-12 md:col-2 lg:col-2 p-fluid">
+          <div className="col-12 md:col-3 lg:col-3 p-fluid">
             <DropdownField
               disabled={false}
               name="EventType"
@@ -136,33 +121,12 @@ function EventDetailPage() {
               showClear={true}
             />
           </div>
-
-          <div className="col-12 md:col-3 lg:col-3 p-fluid">
-            <DropdownField
-              disabled={false}
-              name="Venue"
-              value={Venue}
-              label="Venues & Event Places"
-              options={VenueList}
-              onChange={(e) => setVenue(e.target.value)}
-              optionValue="ClaVenue"
-              optionLabel="NomVenue"
-              showClear={true}
-            />
-          </div>
-
-          <div className="col-12 md:col-3 lg:col-3 p-fluid">
-            <DropdownField
-              disabled={false}
-              name="Church"
-              value={Church}
-              label="Church"
-              options={ChurchList}
-              onChange={(e) => setChurch(e.target.value)}
-              optionValue="ClaIglesia"
-              optionLabel="NomIglesia"
-              showClear={true}
-            />
+    
+          <div className="col-12 md:col-2 lg:col-2 p-fluid">            
+            <ButtonField
+              className="p-button-primary" 
+              label="Reservar"              
+              /> 
           </div>
           {/* <div className="col-6 p-fluid">
           <FloatLabel>
@@ -184,7 +148,9 @@ function EventDetailPage() {
                 leftIcon="pi pi-calendar mr-2"
                 key = {"Recepcion"}
                 header="Recepcion"
-              ></TabPanel>
+              >
+                <EventDetailReception></EventDetailReception>
+              </TabPanel>
                <TabPanel
                 leftIcon="pi pi-calendar mr-2"
                 key = {"Decoracion"}
@@ -194,13 +160,15 @@ function EventDetailPage() {
                 leftIcon="pi pi-calendar mr-2"
                 key = {"Invitacion & Confirmacion"}
                 header="Invitacion & Confirmacion"
-              ></TabPanel>
+              >
+                <EventDetailAttendees></EventDetailAttendees>
+              </TabPanel>
               <TabPanel
                 leftIcon="pi pi-calendar mr-2"
                 key = {"Fotos & Videos"}
                 header="Fotos & Videos"
               ></TabPanel>
-              {/*<TabPanel
+              <TabPanel
                 leftIcon="pi pi-calendar mr-2"
                 key = {"Musica"}
                 header="Musica"
@@ -225,18 +193,6 @@ function EventDetailPage() {
                 key = {"Extras"}
                 header="Extras"
               ></TabPanel>
-              <TabPanel
-                leftIcon="pi pi-calendar mr-2"                
-                header="Extras"
-              ></TabPanel>
-              <TabPanel
-                leftIcon="pi pi-calendar mr-2"                
-                header="Extras"
-              ></TabPanel>
-              <TabPanel
-                leftIcon="pi pi-calendar mr-2"                
-                header="Extras"
-              ></TabPanel> */}
             </TabView>        
             </div>
     </>

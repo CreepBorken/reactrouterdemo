@@ -4,6 +4,7 @@ import { Column } from "primereact/column";
 import { Button } from "primereact/button";
 import { Sidebar } from "primereact/sidebar";
 import EventDetailPage from "./EventDetailPage";
+import ButtonField from "../components/ButtonField";
 
 function EventsPage() {
   const columns = [
@@ -52,7 +53,7 @@ function EventsPage() {
 
   const EventActionTemplate = (rowData) => {
     return (
-      <Button
+      <ButtonField
         className="mr-2 mb-2 p-button-info p-button-text"
         icon="pi pi-info-circle"
         onClick={() => onEventInfo(rowData)}
